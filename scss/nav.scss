@@ -1,0 +1,128 @@
+:root {
+    --primary-color: #ffd972;
+    --overlay-color: rgba(24,39,51,0.85);
+    --menu-speed: 0.75s;
+}
+
+.nav {
+    margin: 0 auto;
+    width: 100%;
+    min-height: 80px;
+    font-family: CaveatReg;
+    // padding: 2px 10%;
+    // padding: 0 50px 0 50px;
+    margin-top: 18px;   //38?
+    padding: 1px 50px 1px 50px;
+    // background-color: rgba(250, 26, 26, 0.603);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+
+    &__buttonNav {
+        // background: yellow;
+        max-width: 551px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    a {
+        // display: block;
+        color: #231f20;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-size: 25px;
+        outline: none;
+        // font-weight: normal;
+    }
+    &__links {
+        list-style: none;
+    }
+    &__links li {
+        display: inline-block;
+        padding: 0px 20px;
+    }
+    &__links li a {
+        transition: all 0.3s ease 0s;
+        font-weight: 700;
+        text-decoration: none;
+        position: relative;
+    }
+    &__links a::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background: #000;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    &__links a:hover::before {
+        color: #A7E8BD;
+        // outline: 2px solid #A7E8BD;
+        text-decoration: underline 2px solid #000;
+        transform: scaleX(1);
+    }
+    &__logo {
+        cursor: pointer;
+        width: auto;
+        height: 65px;
+        transition: .6s;
+    }
+    &__logo:hover {
+        width: auto;
+        height: 55px;
+    }
+    &__cta {
+        margin-left: 30px;
+
+        button {
+            width: 158px;
+            height: 52px;
+            background-color: #FFD972;
+            border-radius: 26px ;
+            padding: 10px 52px 10px 52px;
+            border: none;
+            font-size: 25px;
+            box-shadow: 0px 8px 15px rgba(0,0,0,.2);
+            font-family: CaveatReg;
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            outline: none;
+        }
+        button:hover {
+            background: #A7E8BD;
+            box-shadow: 0px 5px 20px
+            rgba(0,0,0,.5);
+            color: #000;
+            transform: translate(-7px);
+        }
+    }
+}
+
+// ipad view 768 or < 
+@media (max-width: 775px) {
+    .nav {
+        display: none;
+        // background: rgb(0, 255, 242);
+
+        &__logo {
+            height: auto;
+            max-width: 200px;
+        }
+        &__links li {
+            display: inline-block;
+            padding: 0px 0px;
+            padding: 0px 0px;
+        }
+        &__links li a {
+            font-weight: 600;
+        }
+    }
+}

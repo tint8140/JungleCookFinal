@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <!-- google fonts (lato) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- styles css -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Welcome to Jungle Cook</title>
+  </head>
+  <body>
+    <!-- navigation -->
+    <div class="app">
+      <header class="nav">
+        <a href="#" target="_blank">
+          <img
+            class="nav__logo"
+            src="assets/images/logo.svg"
+            alt="Jungle Cook Logo"
+          />
+        </a>
+
+        <!-- nav -->
+        <div class="nav__buttonNav">
+          <nav>
+            <ul class="nav__links">
+              <li><a href="#/home">Home</a></li>
+              <li><a href="#/browse">Browse</a></li>
+              <li><a href="#/crecipe">Create Recipe</a></li>
+
+              <!-- only logged in -->
+              <li><a href="#/yrecipe">Your Recipes</a></li>
+            </ul>
+          </nav>
+          <a class="nav__cta" href="#/login"><button>Login</button></a>
+        </div>
+      </header>
+
+      <!-- burger -->
+      <nav class="menu-wrap">
+        <div class="logoAndBurger">
+          <a href="#" target="_blank">
+            <img
+              class="nav__logo"
+              src="assets/images/logo.svg"
+              alt="Jungle Cook Logo"
+            />
+          </a>
+          <input class="toggler" type="checkbox" />
+          <div class="hamburger"><div></div></div>
+          <div class="menu">
+            <div>
+              <div>
+                <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#/browse">Browse</a></li>
+                  <li><a href="#/crecipe">Create Recipe</a></li>
+                  <li><a href="#/login">Login</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- app -->
+      <div id="app"></div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <div class="footer__content">
+          <div class="footer__copyright">
+            <p>Copyright &copy;2019 The Jungle Cook</p>
+          </div>
+          <div class="footer__nav">
+            <ul>
+              <li><a href="">Login</a></li>
+              <li><a href="">Recipes by Category</a></li>
+              <li><a href="">Privacy and Copyright</a></li>
+              <li><a href="">Create Recipe</a></li>
+              <li><a href="">Your Recipes</a></li>
+            </ul>
+          </div>
+          <div class="footer__icons">
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- our stuff -->
+    <script src="lib/jquery-3.6.1.min.js"></script>
+    <script src="app/model.js"></script>
+    <script src="app/app.js"></script>
+  </body>
+</html>
+
+<!-- font: Caveat- regular and bold used -->
+<!-- colors:
+#A7E8BD
+#FCBCB8
+#EFA7A7
+#FFD972
+#F25C54
+-->

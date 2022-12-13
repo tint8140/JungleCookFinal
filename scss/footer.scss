@@ -1,0 +1,199 @@
+.footer {
+    width: 100%;
+    height: 19px;
+    // background: rgba(255, 0, 255, 0.425);
+    //how do I place this on top?
+    // z-index: 99;
+    margin: 0 40px 26px 40px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;    
+    font-style: italic;
+    font-size: 15px;
+    margin-bottom: 22px;
+    // padding: 0px 20px 22px 20px;
+    
+
+&__content {
+    height: 100%;
+    max-width: 100%;
+    // background: rgba(255, 255, 255, 0.616);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 20px 0 20px;
+}
+&__copyright {
+    // background: hotpink;
+    min-width: 145px;
+    height: 100%;
+    margin-right: 58px;
+    padding: 0px;
+
+    p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+//footer nav
+&__nav {
+    // background: lawngreen;
+    width: 638px;
+    height: 100%;
+    margin-right: 99px;
+
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        li {
+            display: inline-block;
+
+            a {
+                color: #000;
+                // color: yellow;
+                text-decoration: none;
+                transition: all 0.3s ease 0s;
+                font-weight: 300;
+                // font-size: 12px;
+                text-decoration: none;
+                position: relative;
+            }
+            a::before {
+                content: "";
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background: #000;
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+            a:hover::before {
+                color: #A7E8BD;
+                text-decoration: underline 2px solid #000;
+                transform: scaleX(1);
+
+            }
+            a:hover {
+                font-size: 15px;
+                // background: yellow;
+            }
+        }
+    }
+}
+
+&__icons {
+    // background: lightskyblue;
+    width: 80px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 1s;
+}
+&__icons:hover {
+    font-size: 20px;
+}
+}
+
+//tablet
+@media only screen and (max-width: 838px) {
+    .footer {
+        max-width: 100%;
+        height: 19px;
+        margin: 0 auto;
+        font-size: 10px;
+        margin-bottom: 22px;
+        font-size: 10px;
+        // background: gray;
+
+        &__content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &__copyright {
+            // background: seashell;
+            width: 200px;
+            height: 100%;
+            margin: auto;
+        }
+        &__nav {
+            width: 710px;
+            height: 100%;
+            margin: auto;
+            display: inline;
+            align-items: center;
+            justify-content: space-evenly;
+            // background: green;
+        }
+        &__icons {
+            width: 100px;
+            // background: red;
+            height: 100%;
+        }
+    }
+    
+}
+
+//media query 375       phone
+@media only screen and (max-width: 620px) {
+    .footer {
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        font-size: 10px;
+        margin-bottom: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        // background: rgb(27, 213, 226);
+
+        &__content {
+            width: 418px;
+            height: auto;
+            display: inline;
+            align-items: center;
+            justify-content: space-between;
+            // background: brown;
+        }
+        &__copyright {
+            // background: rgb(192, 116, 154);
+            width: 200px;
+            height: 100%;
+            margin: auto;
+        }
+        &__nav {            //why is this unresponsive?
+            width: 100%;
+            height: 40px;
+            padding: 0px;
+            margin: auto;
+            display: inline;
+            align-items: center;
+            justify-content: space-evenly;
+            margin-bottom: 10px;
+            // background: rgb(35, 189, 35);
+        }
+        &__icons {
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 100px;
+            // background: rgb(223, 100, 100);
+            height: 100%;
+        }
+    }
+}
+//270w 33h

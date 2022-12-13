@@ -1,0 +1,112 @@
+.home {
+    height: calc(100vh);
+    width: 100%;
+    //background: tomato;
+    font-family: CaveatReg;
+    background-image: linear-gradient(
+        to right,
+        #f25c54b7,
+        #f25c54ad
+    ), url(../assets/images/hero.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .circle-holder {
+        width: 442px;
+        height: 402px;
+        // background: lightcoral;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        .little-circle {
+            position: absolute;
+            width: 168px;
+            height: 168px;
+            background: #fcbcb8;
+            border-radius: 100px;
+            margin-left: 274px;
+            margin-top: -234px;
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .lctext {
+                width: 105px;
+                height: 38px;
+                text-align: center;
+                // background: chartreuse;
+
+                p {
+                    font-size: 10px;
+                    font-style: italic;
+                }
+            }
+        }
+        .big-circle {
+            width: 358px;
+            height: 358px;
+            background: #ffd972;
+            border-radius: 200px;
+            // moving it southwest
+            margin-right: 84px;
+            margin-bottom: -44px;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .bctext {
+                width: 168px;
+                height: 100px;
+                text-align: center;
+                // background: chocolate;
+                margin: 0 auto;
+                // margin-top: 32px;
+
+                h1 {
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+                p {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+// tablet
+@media only screen and (max-width: 768px) {
+    .home {
+        .circle-holder {
+            .little-circle {
+                margin-left: 200px;
+                margin-top: -280px;
+            }
+        }
+    }
+}
+
+
+// phone
+@media only screen and (max-width: 550px) {
+    .home {
+        width: calc(120vw);
+        height: calc(140vh);
+        // background: pink;
+
+        .circle-holder {
+            .little-circle {
+                margin-left: 200px;
+                margin-top: -280px;
+            }
+        }
+    }
+}

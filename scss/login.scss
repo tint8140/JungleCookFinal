@@ -1,0 +1,169 @@
+.login {
+    // buttons are caveat , rest is lato
+    height: calc(100vh);
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFD972;
+
+    &__content {
+        height: 449px;
+        width: 710px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // background: #fff;
+    }
+
+
+    //placeholder text color (input boxes) if color the same across all of site, move to structure
+    ::placeholder {     //chrome, firefox, opera, safari
+        color: #000;
+        opacity: 1;
+    }
+    :-ms-input-placeholder {    //internet explorer and edge?
+        color: #000;
+    }
+
+
+    // login area
+    &__logHere {
+        height: 293px;
+        width: 209px;
+        // background: lightblue;
+    }
+    &__logHeader {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        margin-bottom: 60px;
+    }
+    input {
+        border: none;
+        border-bottom: 1px solid #000;
+        background: none;
+        color: #000;
+        outline: none;
+        margin-bottom: 51.5px;
+    }
+    &__button {
+        height: 52px;
+        width: 209px;
+        border-radius: 26px;
+        padding: 10px 77px 10px 77px;
+        border: none;
+        font-size: 25px;
+        box-shadow: 0px 8px 30px 8px rgba(0,0,0,.2);
+        font-family: CaveatReg;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out 0s;
+        background: #FFD972;
+    }
+    &__button:hover {
+        background: #A7E8BD;
+        box-shadow: 0px 10px 35px 10px rgba(0,0,0,.4);
+        transform: translate(-4px);
+    }
+
+
+
+    // sign up area
+    &__signUp {
+        height: 449px;
+        width: 250px;
+        // background: lightcoral;
+    }
+    &__signHeader {
+        color: #000;
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;    
+    }
+    &--h4 {
+        font-size: 12px;
+        font-style: italic;
+        text-transform: lowercase;
+        padding: 0px;
+        margin-bottom: 1px;
+    }
+    &--h1 {
+        margin-bottom: 60px;
+        text-transform: capitalize;
+        font-size: 30px;
+    }
+    &--buttonSignUp {
+        display: block;
+        width: 100%;
+    }
+}
+
+//media query
+@media only screen and (max-width: 768px) {
+    .login {
+        width: 100%;
+        height: 1070px;
+        min-height: calc(100vh);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+
+        &__content {
+            margin-top: 87px;
+            width: 207px;
+            height: auto;
+            display: inline;
+            // background: cornsilk;
+        }
+        &__logHere {
+            margin-bottom: 60px;
+        }
+        &__input {
+            margin-bottom: 50px;
+        }
+        &__button {
+            width: 207px;
+            margin-bottom: 114px;
+        }
+        &--buttonSignUp {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            //all of this makes the text one line - sheeesh
+            padding: 20px;
+        }
+        
+    }
+}
+
+//idk why it wouldn't change at 375 on my browser. Based off iphone X
+@media only screen and (max-width: 376px) {
+    .login {
+        height: 1200px;
+        margin-bottom: 200px;
+        // background: lightcoral;
+
+        &__content {
+            height: 857px;
+            // background: rebeccapurple;
+        }
+        &__logHere {
+            margin-bottom: 116px;
+            // background: burlywood;
+        }
+    }  //ughghg
+
+}
+
+//left
+// 209w x 293
+//whole
+//710w x 449
+//right
+//250w x 449
+
+//resized
+//207w x 857

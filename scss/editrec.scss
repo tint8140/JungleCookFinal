@@ -1,0 +1,265 @@
+.editrec {
+    height: calc(230vh);
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #fff;  
+
+    &__wrap {
+        max-width: 983px;
+        height: 1600px;
+        margin: 0 auto;
+        // background: green;
+    }
+    &__heading {
+        width: 351px;
+        height: 32px;
+        font-size: 15px;
+        font-family: CaveatReg;
+        // background: yellow;
+    }
+
+    &__details {
+        margin-top: 65px;
+        // background: rosybrown;   
+    }
+    &__create {
+        max-width: 100%;
+        height: 505px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+        // background: grey;
+    }
+    // label {
+    //     width: 983px;
+    //     height: 33px;
+    //     background: red;
+    // }
+    input {
+        width: 983px;
+        height: 33px;
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        outline: 0;
+        border-width: 0 0 2px;
+        border-color: #000;
+        // background: yellow;
+        // color: yellow;
+    }
+    // the funky button to the right
+    &__attachCta {
+        margin-bottom: -60px;       //may cause issues
+        float: right;
+        background: #EFA7A7;
+        color: #000;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        padding: 7px 15px;
+        font-size: 17px;
+        font-family: 'Caveat', sans-serif;
+        box-shadow: 2px 5px 9px rgba(0,0,0,.2);
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+    &__attachCta:hover {
+        box-shadow: none;
+        background: #A7E8BD;
+        transform: translate(-7px);
+    }
+
+    // ingredients section
+    &__ingredients {
+        margin-top: 127px;
+        max-width: 981px;
+        height: auto;
+        // background: royalblue;
+    }
+    &__ingredientsHeader {
+
+        h1 {
+            font-weight: 300;
+            font-size: 20px;
+            font-family: 'Lato', sans-serif;
+        }
+    }
+    label {
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        outline: 0;
+        border-width: 0 0 2px;
+        border-color: #000;
+    }
+    .fas {
+        width: 50px;
+        height: auto;
+        display: flex;
+        justify-content: space-evenly;
+        padding: 5px;
+        align-items: center;
+        font-size: 38px;
+        color: #EFA7A7;
+        float: right;
+        // background: yellow;
+    }
+    .fa-minus-circle {
+        color: #000;
+    }
+
+    // instructions section
+    &__instructions {
+        margin-top: 127px;
+        max-width: 981px;
+        height: auto;
+        // background: royalblue;
+    }
+    &__instructionsHeader {
+
+        h1 {
+            font-weight: 300;
+            font-size: 20px;
+            font-family: 'Lato', sans-serif;
+        }
+    }
+    label {
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        outline: 0;
+        border-width: 0 0 2px;
+        border-color: #000;
+    }
+    .fas {
+        width: 50px;
+        height: auto;
+        display: flex;
+        justify-content: space-evenly;
+        padding: 5px;
+        align-items: center;
+        font-size: 38px;
+        color: #EFA7A7;
+        float: right;
+        transition: 1s ease;
+        outline: none;
+        // background: yellow;
+    }
+    .fa-minus-circle {
+        color: #000;
+    } 
+    .fas:hover {
+        color: #A7E8BD;
+    }
+
+    //cta
+    &__endctawrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__endcta {
+        margin-top: 100px;
+        width: 354px;
+        height: 52px;
+        text-transform: capitalize;
+        color: #000;
+        background: #EFA7A7;
+        border-radius: 20px;
+        padding: 10px 105px;
+        outline: none;
+        border: none;
+        font-size: 25px;
+        font-family: 'Caveat', sans-serif;
+        box-shadow: 2px 5px 9px rgba(0,0,0,.2);
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+    &__endcta:hover {
+        box-shadow: none;
+        background: #A7E8BD;
+        transform: translate(-7px);
+    }
+}
+
+
+
+
+//resize    tablet
+@media only screen and (max-width: 1099px) {
+    .editrec {
+        // background: pink;
+
+        &__wrap {
+            max-width: 560px;
+            height: 1313px;
+            // background: green;
+        }
+        &__heading {
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // background: grey;
+        }
+        &__details {
+            max-width: 560px;
+            height: 505px;
+        }
+        &__create {
+            max-width: 560px;
+            height: 505px;
+        }
+        input {
+            width: 560px;
+            height: 33px;
+        }
+        &__endctawrap {
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // background: purple;
+        }
+    }
+}
+
+// resize iphone 
+@media only screen and (max-width: 595px) {
+    .editrec {
+        // background: orchid;
+
+        &__wrap {
+            max-width: 283px;
+            height: 1116px;
+            // background: green;
+        }
+        &__heading {
+            width: 281px;
+            height: 25px;
+            font-size: 12px;
+            // background: grey;
+        }
+        input {
+            max-width: 281px;
+            height: 33px;
+        }
+        &__endctawrap {
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // background: purple;
+        }
+        &__endcta {
+            padding: 15px 83px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+    }
+}
