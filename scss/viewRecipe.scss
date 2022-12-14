@@ -1,0 +1,178 @@
+.vrecipe {
+  max-width: 968px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  &__descSection {
+      max-width: 100%;
+      height: 421px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+h1, h2{
+    font-size: 25px;
+    color: #000;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+}
+p {
+    font-family: 'Caveat', sans-serif;
+    margin-bottom: 35px;
+}
+
+  &__Pizza {
+      text-orientation: mixed;
+      h3 {
+          font-size: 20px;
+          letter-spacing: 5px;
+          writing-mode: vertical-lr; 
+      }
+  }
+  &__img {
+      padding: 0;
+      margin: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url('../assets/images/recipe-pizza.jpg');
+      width: 468px;
+      height: 421px;
+  }
+  &__description {
+      max-width: 455px;
+      height: 424px;
+  }
+
+  &__ingredients {
+      margin-top: 58px;
+      max-width: 100%;
+      height: 279px;
+  }
+  
+  ul, li {
+      list-style: none;
+  }
+  &__ingredientsList {
+      font-family: 'Caveat', sans-serif;
+  }
+
+  //instructions
+  &__instructions {
+      margin-top: 58px;
+      max-width: 100%;
+      height: 244px;
+  }
+
+  &__instructionsList {
+      font-family: 'Caveat', sans-serif;
+  }
+
+  //button
+  &__ctaWrap {
+      margin-top: 44px;
+  }
+  &__cta {
+      width: 127px;
+      height: 42px;
+      border-radius: 26px;
+      padding: 8px 15px;
+      border: none;
+      font-family: CaveatReg;
+      outline: none;
+      background: #FFD972;
+  }
+  &__cta:hover {
+      background: #A7E8BD;
+  }
+}
+
+
+
+//resize tablet
+@media only screen and (max-width: 1020px) {
+  .vrecipe {
+          max-width: 768px;
+          height: auto;
+      &__descSection {
+          display: inline;
+          align-items: center;
+          justify-content: center;
+      }
+      &__Pizza {
+          text-orientation: upright;
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+         
+          h3 {
+            writing-mode: horizontal-tb;
+            margin-bottom: 0;
+
+          }
+          
+      }
+      &__img {
+          margin: 0 auto;
+          height: 421px;
+          width: 468px;
+      }
+      &__description {
+          margin: 0 auto;     
+          margin-top: 58px;
+          width: 456px;
+      }
+      
+      &__ingredients, &__instructions {
+          width: 456px;
+          margin: 0 auto;
+          margin-top: 58px;
+      }
+  }
+}
+
+// resize iphone  
+@media only screen and (max-width: 660px) {
+  .vrecipe {
+      max-width: 280px;
+      height: auto;
+      &__descSection {
+          display: inline;
+          align-items: center;
+          justify-content: center;
+
+      }
+      &__Pizza {
+          text-orientation: upright;
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          h3 {
+              margin-bottom: 0;
+              writing-mode: horizontal-tb;
+          }
+          
+      }
+      &__img {
+          margin: 0 auto;
+          height: 226px;
+          width: 280px;
+      }
+      &__description {
+          margin: 0 auto;     
+          margin-top: 58px;
+          width: 280px;
+      }
+      
+      &__ingredients, &__instructions {
+          width: 280px;
+          margin: 0 auto;
+          margin-top: 58px;
+          height: auto;
+      }
+  }
+}

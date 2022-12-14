@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  --yellow: #ffd972;
 }
 
 html,
@@ -19,445 +20,24 @@ p {
   margin-bottom: 16px;
 }
 
-.app {
-  height: 100%;
-  position: relative;
-}
-
-@font-face {
-  font-family: CaveatBold;
-  src: url(../assets/fonts/Caveat-Bold.ttf);
-}
-@font-face {
-  font-family: CaveatReg;
-  src: url(../assets/fonts/Caveat-Regular.ttf);
-}
-:root {
-  --primary-color: #ffd972;
-  --overlay-color: rgba(24,39,51,0.85);
-  --menu-speed: 0.75s;
-}
-
-.nav {
+#app {
+  width: 100%;
   margin: 0 auto;
-  width: 100%;
-  min-height: 80px;
-  font-family: CaveatReg;
-  margin-top: 18px;
-  padding: 1px 50px 1px 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
 }
-.nav__buttonNav {
-  max-width: 551px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.nav a {
-  color: #231f20;
+
+a {
+  color: black;
   text-decoration: none;
-  text-transform: capitalize;
-  font-size: 25px;
-  outline: none;
-}
-.nav__links {
-  list-style: none;
-}
-.nav__links li {
-  display: inline-block;
-  padding: 0px 20px;
-}
-.nav__links li a {
-  transition: all 0.3s ease 0s;
-  font-weight: 700;
-  text-decoration: none;
-  position: relative;
-}
-.nav__links a::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background: #000;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-.nav__links a:hover::before {
-  color: #A7E8BD;
-  text-decoration: underline 2px solid #000;
-  transform: scaleX(1);
-}
-.nav__logo {
-  cursor: pointer;
-  width: auto;
-  height: 65px;
-  transition: 0.6s;
-}
-.nav__logo:hover {
-  width: auto;
-  height: 55px;
-}
-.nav__cta {
-  margin-left: 30px;
-}
-.nav__cta button {
-  width: 158px;
-  height: 52px;
-  background-color: #FFD972;
-  border-radius: 26px;
-  padding: 10px 52px 10px 52px;
-  border: none;
-  font-size: 25px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-  font-family: CaveatReg;
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-}
-.nav__cta button:hover {
-  background: #A7E8BD;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
-  color: #000;
-  transform: translate(-7px);
 }
 
-@media (max-width: 775px) {
-  .nav {
-    display: none;
-  }
-  .nav__logo {
-    height: auto;
-    max-width: 200px;
-  }
-  .nav__links li {
-    display: inline-block;
-    padding: 0px 0px;
-    padding: 0px 0px;
-  }
-  .nav__links li a {
-    font-weight: 600;
-  }
-}
-.menu-wrap {
-  visibility: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
+p {
+  font-family: lato;
 }
 
-.menu-wrap .toggler {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  opacity: 0;
+.hidden {
+  display: none;
 }
 
-.menu-wrap .hamburger {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 60px;
-  height: 60px;
-  padding: 1rem;
-  background: var(--primary-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu-wrap .hamburger > div {
-  position: relative;
-  width: 100%;
-  height: 2px;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.4s ease;
-}
-
-.menu-wrap .hamburger > div:before,
-.menu-wrap .hamburger > div:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  top: -10px;
-  width: 100%;
-  height: 2px;
-  background: inherit;
-}
-
-.menu-wrap .hamburger > div:after {
-  top: 10px;
-}
-
-.menu-wrap .toggler:checked + .hamburger > div {
-  transform: rotate(135deg);
-}
-
-.menu-wrap .toggler:checked + .hamburger > div:before,
-.menu-wrap .toggler:checked + .hamburger > div:after {
-  top: 0;
-  transform: rotate(90deg);
-}
-
-.menu-wrap .toggler:checked:hover + .hamburger > div {
-  transform: rotate(225deg);
-}
-
-.menu-wrap .menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  visibility: hidden;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu-wrap .menu > div {
-  background: var(--overlay-color);
-  border-radius: 50%;
-  width: 200vw;
-  height: 200vw;
-  display: flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  transform: scale(0);
-  transition: all 0.4s ease;
-}
-
-.menu-wrap .menu > div > div {
-  text-align: center;
-  max-width: 90vw;
-  max-height: 100vh;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.menu-wrap .menu > div > div > ul > li {
-  list-style: none;
-  color: #fff;
-  font-size: 1.5rem;
-  padding: 1rem;
-}
-
-.menu-wrap .menu > div > div > ul > li > a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.4s ease;
-  font-family: "Lato", sans-serif;
-}
-
-.menu-wrap .toggler:checked ~ .menu {
-  visibility: visible;
-}
-
-.menu-wrap .toggler:checked ~ .menu > div {
-  transform: scale(1);
-  transition-duration: var(--menu-speed);
-}
-
-.menu-wrap .toggler:checked ~ .menu > div > div {
-  opacity: 1;
-  transition: opacity 0.4s ease;
-}
-
-@media (max-width: 775px) {
-  .logoAndBurger {
-    width: 100vw;
-    height: 60px;
-    padding: 0 40px 0 40px;
-    margin-top: 36px;
-  }
-  .menu-wrap {
-    visibility: visible;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
-}
-.footer {
-  width: 100%;
-  height: 19px;
-  margin: 0 40px 26px 40px;
-  margin: 0 auto;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0px;
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 15px;
-  margin-bottom: 22px;
-}
-.footer__content {
-  height: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 0 20px 0 20px;
-}
-.footer__copyright {
-  min-width: 145px;
-  height: 100%;
-  margin-right: 58px;
-  padding: 0px;
-}
-.footer__copyright p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.footer__nav {
-  width: 638px;
-  height: 100%;
-  margin-right: 99px;
-}
-.footer__nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.footer__nav ul li {
-  display: inline-block;
-}
-.footer__nav ul li a {
-  color: #000;
-  text-decoration: none;
-  transition: all 0.3s ease 0s;
-  font-weight: 300;
-  text-decoration: none;
-  position: relative;
-}
-.footer__nav ul li a::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background: #000;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-.footer__nav ul li a:hover::before {
-  color: #A7E8BD;
-  text-decoration: underline 2px solid #000;
-  transform: scaleX(1);
-}
-.footer__nav ul li a:hover {
-  font-size: 15px;
-}
-.footer__icons {
-  width: 80px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  font-size: 15px;
-  transition: 1s;
-}
-.footer__icons:hover {
-  font-size: 20px;
-}
-
-@media only screen and (max-width: 838px) {
-  .footer {
-    max-width: 100%;
-    height: 19px;
-    margin: 0 auto;
-    font-size: 10px;
-    margin-bottom: 22px;
-    font-size: 10px;
-  }
-  .footer__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .footer__copyright {
-    width: 200px;
-    height: 100%;
-    margin: auto;
-  }
-  .footer__nav {
-    width: 710px;
-    height: 100%;
-    margin: auto;
-    display: inline;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  .footer__icons {
-    width: 100px;
-    height: 100%;
-  }
-}
-@media only screen and (max-width: 620px) {
-  .footer {
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-    font-size: 10px;
-    margin-bottom: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  .footer__content {
-    width: 418px;
-    height: auto;
-    display: inline;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .footer__copyright {
-    width: 200px;
-    height: 100%;
-    margin: auto;
-  }
-  .footer__nav {
-    width: 100%;
-    height: 40px;
-    padding: 0px;
-    margin: auto;
-    display: inline;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-bottom: 10px;
-  }
-  .footer__icons {
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 100px;
-    height: 100%;
-  }
-}
 @font-face {
   font-family: caveat;
   src: url(../assets/fonts/Caveat-Regular.ttf);
@@ -482,6 +62,47 @@ p {
   font-family: lato-black;
   src: url(../assets/fonts/Lato-Black.ttf);
 }
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+nav .links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: black;
+  font-family: caveat;
+  font-size: 25px;
+}
+nav .links .login {
+  background-color: var(--yellow);
+  padding: 10px 20px;
+  border-radius: 25px;
+}
+
+footer {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+footer .links,
+footer p {
+  font-family: lato-italic;
+  display: flex;
+}
+footer .links p,
+footer .links a,
+footer p p,
+footer p a {
+  margin-left: 20px;
+  font-size: 15px;
+}
+footer .footer-icons img {
+  width: 25px;
+  margin-left: 40px;
+}
+
 .home {
   height: 100vh;
   width: 100%;
@@ -502,7 +123,7 @@ p {
   justify-content: center;
   position: relative;
 }
-.home .circle-holder .little-circle {
+.home .circle-holder .small-circle {
   position: absolute;
   width: 168px;
   height: 168px;
@@ -515,12 +136,12 @@ p {
   align-items: center;
   justify-content: center;
 }
-.home .circle-holder .little-circle .lctext {
+.home .circle-holder .small-circle .stext {
   width: 105px;
   height: 38px;
   text-align: center;
 }
-.home .circle-holder .little-circle .lctext p {
+.home .circle-holder .small-circle .stext p {
   font-size: 10px;
   font-style: italic;
 }
@@ -536,166 +157,34 @@ p {
   align-items: center;
   justify-content: center;
 }
-.home .circle-holder .big-circle .bctext {
+.home .circle-holder .big-circle .btext {
   width: 168px;
   height: 100px;
   text-align: center;
   margin: 0 auto;
 }
-.home .circle-holder .big-circle .bctext h1 {
+.home .circle-holder .big-circle .btext h1 {
   font-size: 24px;
   font-weight: bold;
 }
-.home .circle-holder .big-circle .bctext p {
+.home .circle-holder .big-circle .btext p {
   font-size: 13px;
 }
 
 @media only screen and (max-width: 768px) {
-  .home .circle-holder .little-circle {
+  .home .circle-holder .small-circle {
     margin-left: 200px;
     margin-top: -280px;
   }
 }
 @media only screen and (max-width: 550px) {
   .home {
-    width: 120vw;
-    height: 140vh;
+    width: 80%;
+    height: 80%;
   }
-  .home .circle-holder .little-circle {
+  .home .circle-holder .small-circle {
     margin-left: 200px;
     margin-top: -280px;
-  }
-}
-.login {
-  height: 100vh;
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #FFD972;
-}
-.login__content {
-  height: 449px;
-  width: 710px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.login ::placeholder {
-  color: #000;
-  opacity: 1;
-}
-.login :-ms-input-placeholder {
-  color: #000;
-}
-.login__logHere {
-  height: 293px;
-  width: 209px;
-}
-.login__logHeader {
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  margin-bottom: 60px;
-}
-.login input {
-  border: none;
-  border-bottom: 1px solid #000;
-  background: none;
-  color: #000;
-  outline: none;
-  margin-bottom: 51.5px;
-}
-.login__button {
-  height: 52px;
-  width: 209px;
-  border-radius: 26px;
-  padding: 10px 77px 10px 77px;
-  border: none;
-  font-size: 25px;
-  box-shadow: 0px 8px 30px 8px rgba(0, 0, 0, 0.2);
-  font-family: CaveatReg;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out 0s;
-  background: #FFD972;
-}
-.login__button:hover {
-  background: #A7E8BD;
-  box-shadow: 0px 10px 35px 10px rgba(0, 0, 0, 0.4);
-  transform: translate(-4px);
-}
-.login__signUp {
-  height: 449px;
-  width: 250px;
-}
-.login__signHeader {
-  color: #000;
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-}
-.login--h4 {
-  font-size: 12px;
-  font-style: italic;
-  text-transform: lowercase;
-  padding: 0px;
-  margin-bottom: 1px;
-}
-.login--h1 {
-  margin-bottom: 60px;
-  text-transform: capitalize;
-  font-size: 30px;
-}
-.login--buttonSignUp {
-  display: block;
-  width: 100%;
-}
-
-@media only screen and (max-width: 768px) {
-  .login {
-    width: 100%;
-    height: 1070px;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
-  .login__content {
-    margin-top: 87px;
-    width: 207px;
-    height: auto;
-    display: inline;
-  }
-  .login__logHere {
-    margin-bottom: 60px;
-  }
-  .login__input {
-    margin-bottom: 50px;
-  }
-  .login__button {
-    width: 207px;
-    margin-bottom: 114px;
-  }
-  .login--buttonSignUp {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-}
-@media only screen and (max-width: 376px) {
-  .login {
-    height: 1200px;
-    margin-bottom: 200px;
-  }
-  .login__content {
-    height: 857px;
-  }
-  .login__logHere {
-    margin-bottom: 116px;
   }
 }
 .browse {
@@ -901,224 +390,9 @@ p {
     display: inline;
   }
 }
-.crecipe {
-  height: 230vh;
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background: #fff;
-}
-.crecipe__wrap {
-  max-width: 983px;
-  height: 1600px;
-  margin: 0 auto;
-}
-.crecipe__heading {
-  width: 351px;
-  height: 32px;
-  font-size: 15px;
-  font-family: CaveatReg;
-}
-.crecipe__details {
-  margin-top: 65px;
-}
-.crecipe__create {
-  max-width: 100%;
-  height: 505px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-direction: column;
-}
-.crecipe input {
-  width: 983px;
-  height: 33px;
-  font-family: "Lato", sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-  outline: 0;
-  border-width: 0 0 2px;
-  border-color: #000;
-}
-.crecipe__attachCta {
-  margin-bottom: -60px;
-  float: right;
-  background: #EFA7A7;
-  color: #000;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-  padding: 7px 15px;
-  font-size: 17px;
-  font-family: "Caveat", sans-serif;
-  box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-}
-.crecipe__attachCta:hover {
-  box-shadow: none;
-  background: #A7E8BD;
-  transform: translate(-7px);
-}
-.crecipe__ingredients {
-  margin-top: 127px;
-  max-width: 981px;
-  height: auto;
-}
-.crecipe__ingredientsHeader h1 {
-  font-weight: 300;
-  font-size: 20px;
-  font-family: "Lato", sans-serif;
-}
-.crecipe label {
-  font-family: "Lato", sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-  outline: 0;
-  border-width: 0 0 2px;
-  border-color: #000;
-}
-.crecipe .fas {
-  width: 50px;
-  height: auto;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 5px;
-  align-items: center;
-  font-size: 38px;
-  color: #EFA7A7;
-  float: right;
-}
-.crecipe .fa-minus-circle {
-  color: #000;
-}
-.crecipe__instructions {
-  margin-top: 127px;
-  max-width: 981px;
-  height: auto;
-}
-.crecipe__instructionsHeader h1 {
-  font-weight: 300;
-  font-size: 20px;
-  font-family: "Lato", sans-serif;
-}
-.crecipe label {
-  font-family: "Lato", sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-  outline: 0;
-  border-width: 0 0 2px;
-  border-color: #000;
-}
-.crecipe .fas {
-  width: 50px;
-  height: auto;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 5px;
-  align-items: center;
-  font-size: 38px;
-  color: #EFA7A7;
-  float: right;
-  transition: 1s ease;
-  outline: none;
-}
-.crecipe .fa-minus-circle {
-  color: #000;
-}
-.crecipe .fas:hover {
-  color: #A7E8BD;
-}
-.crecipe__endctawrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.crecipe__endcta {
-  margin-top: 100px;
-  width: 354px;
-  height: 52px;
-  text-transform: capitalize;
-  color: #000;
-  background: #EFA7A7;
-  border-radius: 20px;
-  padding: 10px 105px;
-  outline: none;
-  border: none;
-  font-size: 25px;
-  font-family: "Caveat", sans-serif;
-  box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-}
-.crecipe__endcta:hover {
-  box-shadow: none;
-  background: #A7E8BD;
-  transform: translate(-7px);
-}
-
-@media only screen and (max-width: 1099px) {
-  .crecipe__wrap {
-    max-width: 560px;
-    height: 1313px;
-  }
-  .crecipe__heading {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .crecipe__details {
-    max-width: 560px;
-    height: 505px;
-  }
-  .crecipe__create {
-    max-width: 560px;
-    height: 505px;
-  }
-  .crecipe input {
-    width: 560px;
-    height: 33px;
-  }
-  .crecipe__endctawrap {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-@media only screen and (max-width: 595px) {
-  .crecipe__wrap {
-    max-width: 283px;
-    height: 1116px;
-  }
-  .crecipe__heading {
-    width: 281px;
-    height: 25px;
-    font-size: 12px;
-  }
-  .crecipe input {
-    max-width: 281px;
-    height: 33px;
-  }
-  .crecipe__endctawrap {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .crecipe__endcta {
-    padding: 15px 83px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
 .yrecipe {
-  height: 100vh;
   max-width: 100%;
-  background-image: url(../images/recipe-hero.jpg);
+  background-image: url(../assets/images/recipe-hero.jpg);
   background-image: linear-gradient(rgba(167, 232, 189, 0.6), rgba(167, 232, 189, 0.8)), url(../assets/images/recipe-hero.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -1130,26 +404,23 @@ p {
 .yrecipe__wrap {
   width: 524px;
   height: 402px;
-  margin-left: 127px;
+  margin-left: 129px;
   margin-bottom: 170px;
 }
 .yrecipe__heading {
-  width: 440px;
-  height: 32px;
   font-family: CaveatReg;
   font-size: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  width: 430px;
+  height: 31px;
 }
-.yrecipe__foodbox {
+.yrecipe__foodholder {
   width: 524px;
   height: 263px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-bottom: 15px;
-}
-.yrecipe__viewcta {
-  z-index: 1;
+  margin-bottom: 13px;
 }
 .yrecipe__img {
   z-index: 3;
@@ -1160,17 +431,17 @@ p {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.yrecipe--imgPizza {
+.yrecipe__Pizza {
   background-image: url("../assets/images/recipe-pizza.jpg");
 }
-.yrecipe__textContainer {
-  border-radius: 22px;
-  width: 224px;
-  height: 100%;
+.yrecipe__paragraph {
   display: flex;
   align-items: center;
   justify-content: center;
   background: #fff;
+  border-radius: 22px;
+  width: 224px;
+  height: 100%;
 }
 .yrecipe h2 {
   margin-bottom: 20px;
@@ -1178,11 +449,10 @@ p {
   text-transform: capitalize;
   width: auto;
   text-decoration: underline;
-  text-decoration-color: #000;
-  text-decoration-thickness: 3px;
-  text-decoration-style: solid;
+  color: #000;
+  font-weight: bold;
   font-family: "Lato", sans-serif;
-  font-weight: 300;
+  font-weight: 200px;
 }
 .yrecipe p {
   font-size: 9px;
@@ -1209,7 +479,7 @@ p {
   width: 23px;
   margin-right: 10px;
 }
-.yrecipe__ctasWrap {
+.yrecipe__buttonHolder {
   width: 269px;
   height: 42px;
   display: flex;
@@ -1217,24 +487,20 @@ p {
   justify-content: space-between;
 }
 .yrecipe button {
-  width: 127px;
+  width: 120px;
   height: 42px;
   border-radius: 22px;
   border: none;
   outline: none;
   padding: 8px;
   font-size: 19px;
-  font-family: "Caveat", sans-serif;
   text-transform: capitalize;
   box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
   background: #FFD972;
 }
 .yrecipe button:hover {
   box-shadow: none;
   background: #A7E8BD;
-  transform: translate(-7px);
 }
 
 @media only screen and (max-width: 1020px) {
@@ -1267,20 +533,20 @@ p {
     font-size: 12px;
     margin-bottom: 27px;
   }
-  .yrecipe__foodbox {
+  .yrecipe__foodholder {
     display: inline;
     align-items: center;
     justify-content: center;
   }
-  .yrecipe__textContainer {
+  .yrecipe__paragraph {
     border-radius: 22px;
     width: 100%;
     height: 170px;
     display: flex;
     align-items: center;
-    justify-content: center;
     background: #fff;
     margin-bottom: 27px;
+    justify-content: center;
   }
   .yrecipe__viewcta {
     margin: 0 auto;
@@ -1291,17 +557,218 @@ p {
     height: 150px;
   }
 }
-.vrecipe {
+.cRecipe {
   max-width: 100%;
-  height: 180vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   background: #fff;
 }
-.vrecipe__wrap {
+.cRecipe__wrap {
+  max-width: 983px;
+  height: 1600px;
+  margin: 0 auto;
+}
+.cRecipe__heading {
+  width: 351px;
+  height: 32px;
+  font-family: CaveatReg;
+  font-size: 15px;
+}
+.cRecipe__details {
+  margin-top: 65px;
+}
+.cRecipe__create {
+  max-width: 100%;
+  height: 505px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.cRecipe input {
+  width: 983px;
+  height: 33px;
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: #000;
+}
+.cRecipe__button {
+  margin-bottom: -60px;
+  float: right;
+  background: #EFA7A7;
+  color: #000;
+  border-radius: 20px;
+  border: none;
+  padding: 7px 15px;
+  font-size: 20px;
+  box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.2);
+}
+.cRecipe__button:hover {
+  box-shadow: none;
+  background: #A7E8BD;
+}
+.cRecipe__ingredients {
+  margin-top: 127px;
+  max-width: 981px;
+  height: auto;
+}
+.cRecipe__ingredientsHeader h1 {
+  font-weight: 300;
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+}
+.cRecipe label {
+  border-width: 0 0 2px;
+  border-color: #000;
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  outline: 0;
+}
+.cRecipe .fas {
+  width: 50px;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+  align-items: center;
+  font-size: 38px;
+  color: #EFA7A7;
+  float: right;
+}
+.cRecipe .fa-minus-circle {
+  color: #000;
+}
+.cRecipe__instructions {
+  margin-top: 127px;
+  max-width: 981px;
+  height: auto;
+}
+.cRecipe__instructionsHeader h1 {
+  font-weight: 300;
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+}
+.cRecipe label {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: #000;
+}
+.cRecipe .fas {
+  width: 50px;
+  height: auto;
+  display: flex;
+  color: #EFA7A7;
+  float: right;
+  transition: 1s ease;
+  outline: none;
+  justify-content: space-evenly;
+  padding: 5px;
+  align-items: center;
+  font-size: 38px;
+}
+.cRecipe .fa-minus-circle {
+  color: #000;
+}
+.cRecipe .fas:hover {
+  color: #A7E8BD;
+}
+.cRecipe__endctawrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cRecipe__endcta {
+  margin-top: 100px;
+  width: 354px;
+  height: 52px;
+  text-transform: capitalize;
+  color: #000;
+  background: #EFA7A7;
+  border-radius: 20px;
+  font-size: 25px;
+  font-family: "Caveat", sans-serif;
+  box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.2);
+  padding: 10px 105px;
+  outline: none;
+  border: none;
+}
+.cRecipe__endcta:hover {
+  box-shadow: none;
+  background: #A7E8BD;
+}
+
+@media only screen and (max-width: 1099px) {
+  .cRecipe__wrap {
+    max-width: 560px;
+    height: 1313px;
+  }
+  .cRecipe__heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cRecipe__details {
+    max-width: 560px;
+    height: 505px;
+  }
+  .cRecipe__create {
+    max-width: 560px;
+    height: 505px;
+  }
+  .cRecipe input {
+    width: 560px;
+    height: 33px;
+  }
+  .cRecipe__endctawrap {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 595px) {
+  .cRecipe__wrap {
+    max-width: 283px;
+    height: 1116px;
+  }
+  .cRecipe__heading {
+    width: 281px;
+    height: 25px;
+    font-size: 12px;
+  }
+  .cRecipe input {
+    max-width: 281px;
+    height: 33px;
+  }
+  .cRecipe__endctawrap {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cRecipe__endcta {
+    padding: 15px 83px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.vrecipe {
   max-width: 968px;
-  height: 1162px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: #fff;
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
 }
 .vrecipe__descSection {
   max-width: 100%;
@@ -1310,33 +777,7 @@ p {
   justify-content: space-between;
   align-items: center;
 }
-.vrecipe__supremePizza {
-  text-orientation: mixed;
-}
-.vrecipe__supremePizza h3 {
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  font-size: 25px;
-  letter-spacing: 5px;
-  writing-mode: vertical-lr;
-}
-.vrecipe__img {
-  padding: 0;
-  margin: 0;
-  width: 468px;
-  height: 421px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url("../assets/images/recipe-pizza.jpg");
-}
-.vrecipe__description {
-  max-width: 455px;
-  height: 424px;
-}
-.vrecipe h2, .vrecipe h3 {
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
+.vrecipe h1, .vrecipe h2 {
   font-size: 25px;
   color: #000;
   text-transform: capitalize;
@@ -1344,27 +785,39 @@ p {
 }
 .vrecipe p {
   font-family: "Caveat", sans-serif;
-  font-size: 20px;
   margin-bottom: 35px;
 }
-.vrecipe h3 {
+.vrecipe__Pizza {
+  text-orientation: mixed;
+}
+.vrecipe__Pizza h3 {
   font-size: 20px;
+  letter-spacing: 5px;
+  writing-mode: vertical-lr;
+}
+.vrecipe__img {
+  padding: 0;
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../assets/images/recipe-pizza.jpg");
+  width: 468px;
+  height: 421px;
+}
+.vrecipe__description {
+  max-width: 455px;
+  height: 424px;
 }
 .vrecipe__ingredients {
   margin-top: 58px;
   max-width: 100%;
   height: 279px;
 }
-.vrecipe__ingredientsHeader h1 {
-  font-size: 25px;
-  font-weight: 300;
-  font-family: "Lato", sans-serif;
-}
 .vrecipe ul, .vrecipe li {
   list-style: none;
 }
 .vrecipe__ingredientsList {
-  font-size: 20px;
   font-family: "Caveat", sans-serif;
 }
 .vrecipe__instructions {
@@ -1372,13 +825,7 @@ p {
   max-width: 100%;
   height: 244px;
 }
-.vrecipe__instructionsHeader h1 {
-  font-size: 25px;
-  font-weight: 300;
-  font-family: "Lato", sans-serif;
-}
 .vrecipe__instructionsList {
-  font-size: 20px;
   font-family: "Caveat", sans-serif;
 }
 .vrecipe__ctaWrap {
@@ -1390,23 +837,16 @@ p {
   border-radius: 26px;
   padding: 8px 15px;
   border: none;
-  font-size: 20px;
   font-family: CaveatReg;
   outline: none;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out 0s;
   background: #FFD972;
 }
 .vrecipe__cta:hover {
   background: #A7E8BD;
-  transform: translate(-4px);
 }
 
 @media only screen and (max-width: 1020px) {
   .vrecipe {
-    height: 240vh;
-  }
-  .vrecipe__wrap {
     max-width: 768px;
     height: auto;
   }
@@ -1415,15 +855,15 @@ p {
     align-items: center;
     justify-content: center;
   }
-  .vrecipe__supremePizza {
+  .vrecipe__Pizza {
     text-orientation: upright;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
   }
-  .vrecipe__supremePizza h3 {
-    margin-bottom: 0;
+  .vrecipe__Pizza h3 {
     writing-mode: horizontal-tb;
+    margin-bottom: 0;
   }
   .vrecipe__img {
     margin: 0 auto;
@@ -1443,9 +883,6 @@ p {
 }
 @media only screen and (max-width: 660px) {
   .vrecipe {
-    height: 240vh;
-  }
-  .vrecipe__wrap {
     max-width: 280px;
     height: auto;
   }
@@ -1454,13 +891,13 @@ p {
     align-items: center;
     justify-content: center;
   }
-  .vrecipe__supremePizza {
+  .vrecipe__Pizza {
     text-orientation: upright;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
   }
-  .vrecipe__supremePizza h3 {
+  .vrecipe__Pizza h3 {
     margin-bottom: 0;
     writing-mode: horizontal-tb;
   }
@@ -1481,219 +918,40 @@ p {
     height: auto;
   }
 }
-.editrec {
-  height: 230vh;
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background: #fff;
-}
-.editrec__wrap {
-  max-width: 983px;
-  height: 1600px;
+.login-wrapper {
+  width: 80%;
   margin: 0 auto;
-}
-.editrec__heading {
-  width: 351px;
-  height: 32px;
-  font-size: 15px;
-  font-family: CaveatReg;
-}
-.editrec__details {
-  margin-top: 65px;
-}
-.editrec__create {
-  max-width: 100%;
-  height: 505px;
+  background-color: var(--yellow);
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-direction: column;
-}
-.editrec input {
-  width: 983px;
-  height: 33px;
-  font-family: "Lato", sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-  outline: 0;
-  border-width: 0 0 2px;
-  border-color: #000;
-}
-.editrec__attachCta {
-  margin-bottom: -60px;
-  float: right;
-  background: #EFA7A7;
-  color: #000;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-  padding: 7px 15px;
-  font-size: 17px;
-  font-family: "Caveat", sans-serif;
-  box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-}
-.editrec__attachCta:hover {
-  box-shadow: none;
-  background: #A7E8BD;
-  transform: translate(-7px);
-}
-.editrec__ingredients {
-  margin-top: 127px;
-  max-width: 981px;
-  height: auto;
-}
-.editrec__ingredientsHeader h1 {
-  font-weight: 300;
-  font-size: 20px;
-  font-family: "Lato", sans-serif;
-}
-.editrec label {
-  font-family: "Lato", sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-  outline: 0;
-  border-width: 0 0 2px;
-  border-color: #000;
-}
-.editrec .fas {
-  width: 50px;
-  height: auto;
-  display: flex;
+  align-items: center;
   justify-content: space-evenly;
-  padding: 5px;
-  align-items: center;
-  font-size: 38px;
-  color: #EFA7A7;
-  float: right;
 }
-.editrec .fa-minus-circle {
-  color: #000;
+.login-wrapper .form * {
+  display: block;
 }
-.editrec__instructions {
-  margin-top: 127px;
-  max-width: 981px;
-  height: auto;
+.login-wrapper .form h2 {
+  font-family: lato-black;
+  font-size: 30px;
 }
-.editrec__instructionsHeader h1 {
-  font-weight: 300;
-  font-size: 20px;
-  font-family: "Lato", sans-serif;
-}
-.editrec label {
-  font-family: "Lato", sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-  outline: 0;
-  border-width: 0 0 2px;
-  border-color: #000;
-}
-.editrec .fas {
-  width: 50px;
-  height: auto;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 5px;
-  align-items: center;
-  font-size: 38px;
-  color: #EFA7A7;
-  float: right;
-  transition: 1s ease;
-  outline: none;
-}
-.editrec .fa-minus-circle {
-  color: #000;
-}
-.editrec .fas:hover {
-  color: #A7E8BD;
-}
-.editrec__endctawrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.editrec__endcta {
-  margin-top: 100px;
-  width: 354px;
-  height: 52px;
-  text-transform: capitalize;
-  color: #000;
-  background: #EFA7A7;
-  border-radius: 20px;
-  padding: 10px 105px;
+.login-wrapper .form input[type=text],
+.login-wrapper .form input[type=password],
+.login-wrapper .form input[type=email] {
+  margin-top: 50px;
+  width: 250px;
   outline: none;
   border: none;
+  border-bottom: black 3px solid;
+  background-color: var(--yellow);
+}
+.login-wrapper .form input[type=submit] {
+  border: none;
+  margin-bottom: 130px;
+  font-family: caveat;
   font-size: 25px;
-  font-family: "Caveat", sans-serif;
-  box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-}
-.editrec__endcta:hover {
-  box-shadow: none;
-  background: #A7E8BD;
-  transform: translate(-7px);
-}
-
-@media only screen and (max-width: 1099px) {
-  .editrec__wrap {
-    max-width: 560px;
-    height: 1313px;
-  }
-  .editrec__heading {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .editrec__details {
-    max-width: 560px;
-    height: 505px;
-  }
-  .editrec__create {
-    max-width: 560px;
-    height: 505px;
-  }
-  .editrec input {
-    width: 560px;
-    height: 33px;
-  }
-  .editrec__endctawrap {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-@media only screen and (max-width: 595px) {
-  .editrec__wrap {
-    max-width: 283px;
-    height: 1116px;
-  }
-  .editrec__heading {
-    width: 281px;
-    height: 25px;
-    font-size: 12px;
-  }
-  .editrec input {
-    max-width: 281px;
-    height: 33px;
-  }
-  .editrec__endctawrap {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .editrec__endcta {
-    padding: 15px 83px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  width: 250px;
+  height: 52px;
+  margin-top: 50px;
+  border-radius: 25px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -24,7 +24,7 @@
         justify-content: center;
         position: relative;
 
-        .little-circle {
+        .small-circle {
             position: absolute;
             width: 168px;
             height: 168px;
@@ -37,12 +37,10 @@
             align-items: center;
             justify-content: center;
 
-            .lctext {
+            .stext {
                 width: 105px;
                 height: 38px;
                 text-align: center;
-                // background: chartreuse;
-
                 p {
                     font-size: 10px;
                     font-style: italic;
@@ -54,7 +52,6 @@
             height: 358px;
             background: #ffd972;
             border-radius: 200px;
-            // moving it southwest
             margin-right: 84px;
             margin-bottom: -44px;
             z-index: 1;
@@ -62,14 +59,11 @@
             align-items: center;
             justify-content: center;
 
-            .bctext {
+            .btext {
                 width: 168px;
                 height: 100px;
                 text-align: center;
-                // background: chocolate;
                 margin: 0 auto;
-                // margin-top: 32px;
-
                 h1 {
                     font-size: 24px;
                     font-weight: bold;
@@ -86,7 +80,7 @@
 @media only screen and (max-width: 768px) {
     .home {
         .circle-holder {
-            .little-circle {
+            .small-circle {
                 margin-left: 200px;
                 margin-top: -280px;
             }
@@ -98,12 +92,11 @@
 // phone
 @media only screen and (max-width: 550px) {
     .home {
-        width: calc(120vw);
-        height: calc(140vh);
-        // background: pink;
+        width: 80%;
+        height: 80%;
 
         .circle-holder {
-            .little-circle {
+            .small-circle {
                 margin-left: 200px;
                 margin-top: -280px;
             }

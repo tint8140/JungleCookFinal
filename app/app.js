@@ -1,115 +1,144 @@
+import * as MODEL from "./model.js";
+
 function route() {
-  let hashTag = window.location.hash;
-  // console.log("hash tag " + hashTag);
-  let pageID = hashTag.replace("#/", "");
+  let hashtagLink = window.location.hash;
+  let pageID = hashtagLink.replace("#", "");
 
-  if (pageID == "") {
-    // navToPage("home");
-    MODEL.getMyVariable("home");
+  if (pageID == "" || pageID == "home") {
+    MODEL.currentPage("home");
+  } else if (pageID == "login") {
+    MODEL.currentPage("login", initLoginListeners),
+      $("body, nav, footer").css("background-color", "var(--yellow)");
+    $("body").css("background-image", "none");
+  } else if (pageID == "createRecipe") {
+    MODEL.currentPage("createRecipe", addRecipe);
   } else {
-    // navToPage(pageID);
-    MODEL.getMyVariable(pageID);
+    MODEL.currentPage(pageID);
   }
-  //use model
-  MODEL.getMyVariable(pageID);
-}
-// end of mvc
-
-function initFirebase() {
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      console.log("connected");
-      // this is pname
-      $(".login--hidden").css("display", "block");
-    } else {
-      console.log("user is not there");
-      $(".login--hidden").css("display", "none");
-    }
-  });
-}
-
-function createUser() {
-  let password = "password"; //$("password").val();
-  let email = "vcejaeli@iu.edu";
-  let fName = "Vlad";
-  let lName = "Ceja";
-
-  //from firebase
-  firebase
-    .auth()
-    .createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in
-      var user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorMessage);
-      // ..
-    });
-}
-
-function login() {
-  let password = "password";
-  let email = "vcejaeli@iu.edu";
-  firebase
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in
-      var user = userCredential.user;
-      console.log("signed in");
-      // ...
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorMessage);
-    });
-}
-
-function signOut() {
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      // Sign-out successful.
-      console.log("signed out");
-    })
-    .catch((error) => {
-      // An error happened.
-      console.log(error);
-    });
 }
 
 function initListeners() {
-  //MVC
   $(window).on("hashchange", route);
   route();
+}
 
-  //login page login button
-  $("login").click(function (e) {
+//sign up function
+function signUp() {
+  let fn = $("#fname").val();
+  let ln = $("#lname").val();
+  let email = $("#email").val();
+  let password = $("#pw").val();
+
+  MODEL.signup(fn, ln, email, password);
+
+  $("#fname").val("");
+  $("#lname").val("");
+  $("#signup-email").val("");
+  $("#signup-password").val("");
+
+  $(".links").html(`
+  <a href="#home">Home</a>
+  <a href="#browse">Browse</a>
+  <a href="#createRecipe">Create Recipe</a>
+  <a href="#yourRecipes">Your Recipes</a>
+  
+  <a class="login" href="#login" id="logout"
+    >Logout</a
+  >`);
+}
+
+//log in function
+function login() {
+  let email = $("#email").val();
+  let password = $("#pw").val();
+
+  MODEL.login(email, password);
+
+  $("#email").val("");
+  $("#pw").val("");
+
+  $(".links").html(`
+  <a href="#home">Home</a>
+  <a href="#browse">Browse</a>
+  <a href="#createRecipe">Create Recipe</a>
+  <a href="#yourRecipes">Your Recipes</a>
+  
+  <a class="login" href="#login" id="logout"
+    >Logout</a
+  >
+  `);
+}
+
+//log out function
+function logout() {
+  console.log("log out");
+  localStorage.removeItem("currentUser");
+  MODEL.logout();
+  $(".links").html(`
+  <a href="#home" id="home">Home</a>
+        <a href="#browse" id="browse">Browse</a>
+        
+        <a class="login" id="login" href="#login">Login</a>
+  `);
+}
+
+function initLoginListeners() {
+  $("#signup").on("click", () => {
+    signUp();
+  });
+  $("#login").on("click", login);
+
+  $("#logout").on("click", logout);
+}
+
+// add recipe
+async function addRecipe(firstName) {
+  // $("#user-hello").html(`Hey ${firstName}, create your recipe!`);
+
+  $(".addIngred").on("click", (e) => {
+    // console.log("click");
+
+    $(".formIngredients").append(
+      `<input type="text" id="ingred${ingredCount}" placeholder="Ingredient ${
+        ingredCount + 1
+      }" />`
+    );
+
+    ingredCount++;
+  });
+
+  let recipeObj = {
+    image: "",
+    name: "",
+    desc: "",
+    time: "",
+    servings: "",
+    instructions: [],
+    ingredients: [],
+  };
+
+  $("#recipeSubmit").on("click", (e) => {
     e.preventDefault();
-    let btnID = e.currentTarget.id;
-    // console.log("I am clicked");
-    if (btnID == "create") {
-      createUser();
-    } else if (btnID == "login") {
-      login();
-    } else if (btnID == "signout") {
-      signOut();
-    }
+    // console.log("submit");
+
+    recipeObj.image = $("#rImg")[0].value;
+    recipeObj.name = $("#rName")[0].value;
+    recipeObj.desc = $("#rDesc")[0].value;
+    recipeObj.time = $("#rTime")[0].value;
+    recipeObj.servings = $("#rServing")[0].value;
+
+    $(".formInstructions input").each((idx, instr) => {
+      recipeObj.instructions.push(instr.value);
+    });
+
+    $(".formIngredients input").each((idx, ingredient) => {
+      recipeObj.ingredients.push(ingredient.value);
+    });
+    MODEL.addRecipe(recipeObj);
   });
 }
 
+//document ready
 $(document).ready(function () {
-  try {
-    let app = firebase.app();
-    initFirebase();
-    initListeners();
-  } catch {
-    console.error(e);
-  }
+  initListeners();
 });

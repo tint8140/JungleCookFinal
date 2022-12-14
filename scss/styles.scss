@@ -1,15 +1,12 @@
 @import "structure.scss";
-@import "nav.scss";
-@import "nav-burger.scss";
-@import "footer.scss";
 @import "fonts.scss";
+@import "nav.scss";
+@import "footer.scss";
 
+//pages
 @import "home.scss";
-@import "login.scss";
 @import "browse.scss";
-@import "createRecipe.scss";
 @import "yourRecipes.scss";
-@import "vrecipe.scss";
-@import "editrec.scss";
-
-// @import "../pages/gallery/gallery.scss";
+@import "createRecipe.scss";
+@import "viewRecipe.scss";
+@import "login.scss";

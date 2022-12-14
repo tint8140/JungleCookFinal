@@ -1,7 +1,6 @@
 .yrecipe {
-  height: calc(100vh);        //1100   660h
   max-width: 100%;
-  background-image: url(../images/recipe-hero.jpg);
+  background-image: url(../assets/images/recipe-hero.jpg);
   background-image: linear-gradient(
       rgba(167, 232, 189, 0.6),
       rgba(167, 232, 189, 0.8)
@@ -13,37 +12,29 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-
   &__wrap {
       width: 524px;
       height: 402px;
-      margin-left: 127px;
+      margin-left: 129px;
       margin-bottom: 170px;
-      // background: chocolate;
   }
   &__heading {
-      width: 440px;
-      height: 32px;
       font-family: CaveatReg;
       font-size: 15px;
-      margin-bottom: 50px;
-      // letter-spacing: 2px;
-      // background: yellow;  
+      margin-bottom: 40px;
+      width: 430px;
+      height: 31px;
   }
-
-  &__foodbox {
+  &__foodholder {
       width: 524px;
       height: 263px;
       display: flex;
       align-items: center;
       justify-content: space-evenly;
-      margin-bottom: 15px;
-      // background: hotpink;
+      margin-bottom: 13px;
   }
   
-  &__viewcta {
-      z-index: 1;         //ugh
-  }
+
   &__img {
       z-index: 3;
       width: 300px;
@@ -52,19 +43,19 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      // background: tomato;
   }
-  &--imgPizza {
+  &__Pizza {
       background-image: url('../assets/images/recipe-pizza.jpg');
   }
-  &__textContainer {
-      border-radius: 22px;
-      width: 224px;
-      height: 100%;
+  &__paragraph {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #fff;   //keep this one
+      background: #fff;  
+      border-radius: 22px;
+      width: 224px;
+      height: 100%;
+      
   }
   h2 {
       margin-bottom: 20px;
@@ -72,12 +63,10 @@
       text-transform: capitalize;
       width: auto;
       text-decoration: underline;
-      text-decoration-color: #000;
-      text-decoration-thickness: 3px;
-      text-decoration-style: solid;
+      color: #000;
+      font-weight: bold;
       font-family: 'Lato', sans-serif;
-      font-weight: 300;         
-      // background: olivedrab;
+      font-weight: 200px;         
   }
   p {
       font-size: 9px;
@@ -85,14 +74,12 @@
   &__alltext {
       font-family: 'Lato', sans-serif;
       font-weight: 300;    
-      // margin: 0 auto;
       width: 130px;
       height: 177px;
       display: inline;
       align-items: center;
       text-align: center;
       justify-content: space-evenly;
-      // background: paleturquoise;
   }
   &__iconwrap {
       margin-bottom: 10px;
@@ -100,41 +87,34 @@
       align-items: center;
       text-align: center;
       justify-content: center;
-      // background: olive;
   }
   .icons {
       height: 23px;
       width: 23px;
       margin-right: 10px;
   }
-  // buttons
-  &__ctasWrap {
+  &__buttonHolder {
       width: 269px;
       height: 42px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      // background: darkorange;
   }
   button {
-      width: 127px;
+      width: 120px;
       height: 42px;
       border-radius: 22px;
       border: none;
       outline: none;
       padding: 8px;
       font-size: 19px;
-      font-family: 'Caveat', sans-serif;
       text-transform: capitalize;
       box-shadow: 2px 5px 9px rgba(0,0,0,.2);
-      cursor: pointer;
-      transition: all 0.3s ease 0s;
       background: #FFD972;
   }
   button:hover {
       box-shadow: none;
       background: #A7E8BD;
-      transform: translate(-7px);
   }
 }
 
@@ -144,7 +124,6 @@
   .yrecipe {
       max-width: 100%;
       height: calc(100vh);
-      // background: green;
 
       &__wrap {
           max-width: 424px;
@@ -152,47 +131,41 @@
           display: inline;
           justify-content: center;
           align-items: center;
-          // background: chocolate;
       }
   }
 }
 
-
-// resize iphone        360w
 @media only screen and (max-width: 660px) {
   .yrecipe {
       max-width: 100%;
       height: calc(100vh);
-      // background: green;
-
       &__wrap {
           max-width: 300px;
           height: 60%;
           display: inline;
           justify-content: space-between;
           align-items: center;
-          // background: chocolate;
       }
       &__heading {
           width: 300px;
           font-size: 12px;
           margin-bottom: 27px;
       }
-      &__foodbox {
+      &__foodholder {
           display: inline;
           align-items: center;
           justify-content: center;
-          // background: hotpink;
       }
-      &__textContainer {
+      &__paragraph {
           border-radius: 22px;
           width: 100%;
           height: 170px;
           display: flex;
           align-items: center;
-          justify-content: center;
-          background: #fff;   //keep this one
+          background: #fff; 
           margin-bottom: 27px;
+          justify-content: center;
+         
       }
       &__viewcta {
           margin: 0 auto;
