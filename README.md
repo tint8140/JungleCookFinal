@@ -16,4 +16,4 @@ All pages are responsive and styled.
 
 I've tried my best with CRUD... :(
 
-https://in-info-web4.informatics.iupui.edu/~tintin/315-final-main
+https://in-info-web4.informatics.iupui.edu/~tintin/JungleCookFinal
