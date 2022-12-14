@@ -5,18 +5,6 @@
   justify-content: space-evenly;
   background: #fff;  
 
-  &__wrap {
-      max-width: 983px;
-      height: 1600px;
-      margin: 0 auto;
-  }
-  &__heading {
-      width: 351px;
-      height: 32px;
-      font-family: CaveatReg;
-      font-size: 15px;
-  }
-
   &__details {
       margin-top: 65px;
   }
@@ -40,7 +28,7 @@
       border-color: #000;
     
   }
-  &__button {
+ button {
       margin-bottom: -60px;      
       float: right;
       background: #EFA7A7;
@@ -96,14 +84,12 @@
       max-width: 981px;
       height: auto;
   }
-  &__instructionsHeader {
 
-      h1 {
-          font-weight: 300;
+ h1 {
           font-size: 20px;
           font-family: 'Lato', sans-serif;
-      }
-  }
+}
+
   label {
       font-family: 'Lato', sans-serif;
       font-size: 20px;
@@ -132,12 +118,10 @@
       color: #A7E8BD;
   }
 
-  &__endctawrap {
+  button .createRecipe {
       display: flex;
       align-items: center;
       justify-content: center;
-  }
-  &__endcta {
       margin-top: 100px;
       width: 354px;
       height: 52px;
@@ -152,7 +136,7 @@
       outline: none;
       border: none;
   }
-  &__endcta:hover {
+  .createRecipe:hover {
       box-shadow: none;
       background: #A7E8BD;
   }
@@ -162,16 +146,12 @@
 
 
 @media only screen and (max-width: 1099px) {
-  .cRecipe {
-      &__wrap {
-          max-width: 560px;
+  .cRecipe {          
+        max-width: 560px;
           height: 1313px;
-      }
-      &__heading {
           display: flex;
           align-items: center;
           justify-content: center;
-      }
       &__details {
           max-width: 560px;
           height: 505px;
@@ -184,7 +164,7 @@
           width: 560px;
           height: 33px;
       }
-      &__endctawrap {
+      .createRecipe {
           margin-top: 50px;
           display: flex;
           align-items: center;
@@ -194,10 +174,8 @@
 }
 @media only screen and (max-width: 595px) {
   .cRecipe {
-      &__wrap {
-          max-width: 283px;
-          height: 1116px;
-      }
+        max-width: 283px;
+        height: 1116px;
       &__heading {
           width: 281px;
           height: 25px;
@@ -207,17 +185,12 @@
           max-width: 281px;
           height: 33px;
       }
-      &__endctawrap {
+      .createRecipe {
           margin-top: 50px;
           display: flex;
           align-items: center;
           justify-content: center;
-      }
-      &__endcta {
           padding: 15px 83px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
           
       }
   }

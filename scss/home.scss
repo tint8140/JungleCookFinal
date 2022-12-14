@@ -1,7 +1,5 @@
 .home {
-    height: calc(100vh);
     width: 100%;
-    //background: tomato;
     font-family: CaveatReg;
     background-image: linear-gradient(
         to right,
@@ -18,7 +16,6 @@
     .circle-holder {
         width: 442px;
         height: 402px;
-        // background: lightcoral;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -30,13 +27,8 @@
             height: 168px;
             background: #fcbcb8;
             border-radius: 100px;
-            margin-left: 274px;
             margin-top: -234px;
             z-index: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
             .stext {
                 width: 105px;
                 height: 38px;
@@ -52,13 +44,7 @@
             height: 358px;
             background: #ffd972;
             border-radius: 200px;
-            margin-right: 84px;
             margin-bottom: -44px;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
             .btext {
                 width: 168px;
                 height: 100px;
@@ -80,9 +66,12 @@
 @media only screen and (max-width: 768px) {
     .home {
         .circle-holder {
+            width: 80%;
+            height: 80%;
             .small-circle {
-                margin-left: 200px;
-                margin-top: -280px;
+               
+            }
+            .big-circle{
             }
         }
     }
@@ -92,13 +81,14 @@
 // phone
 @media only screen and (max-width: 550px) {
     .home {
-        width: 80%;
-        height: 80%;
-
         .circle-holder {
+            width: 60%;
+            height: 60%;
             .small-circle {
-                margin-left: 200px;
                 margin-top: -280px;
+            }
+            .big-circle{
+                
             }
         }
     }

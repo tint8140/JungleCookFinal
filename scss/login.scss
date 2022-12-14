@@ -40,3 +40,37 @@
     }
   }
 }
+
+// tablet
+@media only screen and (max-width: 768px) {
+  .login-wrapper { 
+
+    .form {
+     width: 80%;
+     height: 80%;
+     margin: 40px 20px;
+    }
+}
+}
+
+// phone
+@media only screen and (max-width: 550px) {
+
+       .login-wrapper{
+         width: 60%;
+          height: 60%;
+        .form input{
+         
+          padding: 40px 20px;
+          input{
+          width: 200px;
+          }
+         }
+       }
+  // .form One{
+  //   width: 60%;
+  //   height: 60%;
+  //   padding: 40px 20px;
+  //  }
+
+}

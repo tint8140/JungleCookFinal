@@ -1,5 +1,10 @@
 # final-project
 
-CRUD application by Ramona.
+CREATE
+READ
+UPDATE
+DELETE
 
-Not showing on https://in-info-web4.informatics.iupui.edu/~tintin/315-final/#/home due to large file.
+https://in-info-web4.informatics.iupui.edu/~tintin/315-final-main
+
+CRUD application by Ramona.

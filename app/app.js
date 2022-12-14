@@ -56,13 +56,13 @@ function login() {
 
   $("#email").val("");
   $("#pw").val("");
+  alert("Successful login");
 
   $(".links").html(`
   <a href="#home">Home</a>
   <a href="#browse">Browse</a>
   <a href="#createRecipe">Create Recipe</a>
   <a href="#yourRecipes">Your Recipes</a>
-  
   <a class="login" href="#login" id="logout"
     >Logout</a
   >
@@ -71,14 +71,14 @@ function login() {
 
 //log out function
 function logout() {
-  console.log("log out");
+  // console.log("log out");
+
   localStorage.removeItem("currentUser");
   MODEL.logout();
   $(".links").html(`
-  <a href="#home" id="home">Home</a>
-        <a href="#browse" id="browse">Browse</a>
-        
-        <a class="login" id="login" href="#login">Login</a>
+  <a href="#home">Home</a>
+  <a href="#browse">Browse</a>
+  <a class="login" id="login" href="#login">Login</a>
   `);
 }
 
@@ -93,18 +93,10 @@ function initLoginListeners() {
 
 // add recipe
 async function addRecipe(firstName) {
-  // $("#user-hello").html(`Hey ${firstName}, create your recipe!`);
-
   $(".addIngred").on("click", (e) => {
     // console.log("click");
 
-    $(".formIngredients").append(
-      `<input type="text" id="ingred${ingredCount}" placeholder="Ingredient ${
-        ingredCount + 1
-      }" />`
-    );
-
-    ingredCount++;
+    alert("Successful log out");
   });
 
   let recipeObj = {
@@ -117,23 +109,20 @@ async function addRecipe(firstName) {
     ingredients: [],
   };
 
-  $("#recipeSubmit").on("click", (e) => {
+  $(".createRecipe").on("click", (e) => {
     e.preventDefault();
-    // console.log("submit");
+    alert("Hello");
 
-    recipeObj.image = $("#rImg")[0].value;
+    recipeObj.image = $("#rImage")[0].value;
     recipeObj.name = $("#rName")[0].value;
     recipeObj.desc = $("#rDesc")[0].value;
     recipeObj.time = $("#rTime")[0].value;
-    recipeObj.servings = $("#rServing")[0].value;
+    recipeObj.servings = $("#rSize")[0].value;
 
-    $(".formInstructions input").each((idx, instr) => {
+    $(".cRecipe input").each((idx, instr) => {
       recipeObj.instructions.push(instr.value);
     });
 
-    $(".formIngredients input").each((idx, ingredient) => {
-      recipeObj.ingredients.push(ingredient.value);
-    });
     MODEL.addRecipe(recipeObj);
   });
 }

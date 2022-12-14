@@ -1,47 +1,56 @@
 <div class="cRecipe">
-  <div class="cRecipe__wrap">
-    <div class="cRecipe__heading">
-      <h1>Hey Michael, Create your recipe!</h1>
-    </div>
+  <div>
+    <h1>Hey Michael, Create your recipe!</h1>
     <div class="cRecipe__details">
       <form class="cRecipe__create" action="">
         <label>
-          <input type="text" placeholder="Add Recipe Image" />
+          <input
+            type="text"
+            id="rImage"
+            placeholder="Add Recipe Image"
+            required
+          />
           <button class="cRecipe__button">Attach file</button>
         </label>
         <label>
-          <input type="text" placeholder="Recipe Name" />
+          <input type="text" id="rName" placeholder="Recipe Name" required />
         </label>
         <label>
-          <input type="text" placeholder="Recipe Description" />
+          <input
+            type="text"
+            id="rDesc"
+            placeholder="Recipe Description"
+            required
+          />
         </label>
         <label>
-          <input type="text" placeholder="Recipe Total Time" />
+          <input
+            type="text"
+            id="rTime"
+            placeholder="Recipe Total Time"
+            required
+          />
         </label>
         <label>
-          <input type="text" placeholder="Recipe Serving Size" />
+          <input
+            type="text"
+            id="rSize"
+            placeholder="Recipe Serving Size"
+            required
+          />
         </label>
       </form>
     </div>
 
     <div class="cRecipe__instructions">
       <form action="" class="cRecipe__instructionsform">
-        <div class="cRecipe__instructionsHeader">
-          <h1>Enter instructions</h1>
-        </div>
-        <div id="TextBoxesGroup">
-          <div id="TextBoxDiv1">
-            <label>instruction #1 : </label
-            ><input type="textbox" id="textbox1" />
-          </div>
-        </div>
-        <i id="addButton" class="fas fa-plus-circle"></i>
+        <h1>Enter instructions</h1>
+        <p>Instruction #1 :</p>
+        <input type="textbox" required />
+        <i id="c" class="fas fa-plus-circle"></i>
         <i id="removeButton" class="fas fa-minus-circle"></i>
       </form>
-    </div>
-
-    <div class="cRecipe__endctawrap">
-      <button class="cRecipe__endcta">Create Recipe</button>
+      <button class="createRecipe">Create Recipe</button>
     </div>
   </div>
 </div>

@@ -19,3 +19,23 @@ nav {
     }
   }
 }
+// tablet
+@media only screen and (max-width: 768px) {
+  .nav { a {
+              font-size: 15x;
+            }
+        
+            .login {
+              width: 80%;
+              height: 80%;
+            }
+          }
+        }
+
+// phone
+@media only screen and (max-width: 550px) {
+  .nav {
+          width: 60%;
+          height: 60%;
+  }
+}
